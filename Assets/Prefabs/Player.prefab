@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1859396376291238610}
   - component: {fileID: 9213842981384375256}
   - component: {fileID: 3011366804840623681}
+  - component: {fileID: 1983093807}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +265,23 @@ MonoBehaviour:
   dashForce: 15
   wallJumpingCooldown: 1
   tr: {fileID: 9213842981384375256}
+--- !u!111 &1983093807
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859396376291238623}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 2775b693c0f3bcb40b67b0056445a8f5, type: 2}
+  - {fileID: 7400000, guid: acce60112bac5e14cb49b54a0cd60ea6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1859396377250142692
 GameObject:
   m_ObjectHideFlags: 0
