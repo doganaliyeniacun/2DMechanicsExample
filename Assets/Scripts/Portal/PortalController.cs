@@ -45,8 +45,6 @@ public class PortalController : MonoBehaviour
         rb.velocity = Vector2.zero;
         anim.Play("PortalOut");
         
-
-
         yield return new WaitForSeconds(0.5f);
         rb.simulated = true;
     }

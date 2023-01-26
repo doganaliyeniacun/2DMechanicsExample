@@ -49,6 +49,14 @@ public class Spear : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            edgeCollider2D.enabled = false;
+        }
+    }
+
     private void Attack()
     {
         if (anim)
