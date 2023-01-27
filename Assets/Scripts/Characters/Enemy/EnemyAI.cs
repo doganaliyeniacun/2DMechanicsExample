@@ -38,23 +38,23 @@ public class EnemyAI : MonoBehaviour
 
     private void FindPlayer()
     {
-        rb.velocity = Vector2.zero;
-
         Collider2D player =
             Physics2D
                 .OverlapCircle(transform.position, radius, playerLayerMask);
 
+        Vector2 currentDown = Vector2.down * 10;
+
         if (player != null)
         {
             playerPos = player.gameObject.transform.position;
-
-            Vector2 pos =
-                Vector2
-                    .MoveTowards(transform.position,
-                    new Vector2(playerPos.x, transform.position.y),
-                    moveSpeed * Time.fixedDeltaTime);
-
-            rb.MovePosition (pos);
+            
+            rb.velocity =
+                new Vector2(playerPos.x - transform.position.x,
+                    currentDown.y);
+        }
+        else
+        {
+            rb.velocity = currentDown;
         }
     }
 
