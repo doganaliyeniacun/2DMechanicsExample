@@ -51,10 +51,12 @@ public class Spear : MonoBehaviour
             //knock backing
             knockBack
                 .Execute(other.gameObject.GetComponent<Rigidbody2D>(),
-                other.gameObject.transform.position,
-                transform.position);
+                transform.position,
+                other.gameObject.transform.position);
         }
     }
+
+        
 
     private void OnTriggerExit2D(Collider2D other)
     {
