@@ -2476,6 +2476,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1859396376291238609, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
   m_PrefabInstance: {fileID: 1859396377731104504}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2020086788 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1812311138, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+  m_PrefabInstance: {fileID: 1859396377731104504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2020086793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020086788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c1bb84a8e654b419323ec5a8c3737e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockFromRight: 0
+  KBForce: {x: 1, y: 0}
 --- !u!1001 &2040769720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2535,6 +2554,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1859396376291238611, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1859396376291238623, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -2546,6 +2569,26 @@ PrefabInstance:
     - target: {fileID: 1859396376291238623, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532327440093577517, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
+      propertyPath: KBForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532327440093577517, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
+      propertyPath: KBActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532327440093577517, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
+      propertyPath: KBCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532327440093577517, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
+      propertyPath: KBTotalTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532327440093577517, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
+      propertyPath: KnockFromRight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce99884e1ce30e34ea00eaf643673f6f, type: 3}
@@ -2778,8 +2821,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 98883013, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98883013, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45290953
+      objectReference: {fileID: 0}
+    - target: {fileID: 98883013, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 681428264, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812311142, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: knockBack
+      value: 
+      objectReference: {fileID: 2020086793}
+    - target: {fileID: 2022876781, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5963054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022876781, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022876781, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1859396376291238609, guid: d0b9398c33738c74698aa5fe94321a9b, type: 3}

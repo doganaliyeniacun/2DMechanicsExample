@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour
             radius = 5f,
             moveSpeed = 5f;
 
+    public bool canFindPlayer = true;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,7 +24,10 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        FindPlayer();
+        if (canFindPlayer)
+        {
+            FindPlayer();
+        }
     }
 
     // Update is called once per frame
@@ -33,6 +38,8 @@ public class EnemyAI : MonoBehaviour
 
     private void FindPlayer()
     {
+        rb.velocity = Vector2.zero;
+
         Collider2D player =
             Physics2D
                 .OverlapCircle(transform.position, radius, playerLayerMask);

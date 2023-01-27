@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
-using Unity.VisualScripting;
 
 public class Spear : MonoBehaviour
 {
@@ -12,7 +8,10 @@ public class Spear : MonoBehaviour
     [SerializeField]
     private Animation anim;
 
-    private EdgeCollider2D edgeCollider2D;
+    [SerializeField]
+    private KnockBack knockBack;
+
+    private EdgeCollider2D _edgeCollider2D;
 
     private void OnEnable()
     {
@@ -26,18 +25,18 @@ public class Spear : MonoBehaviour
 
     private void Awake()
     {
-        edgeCollider2D = GetComponent<EdgeCollider2D>();
+        _edgeCollider2D = GetComponent<EdgeCollider2D>();
     }
 
     private void Update()
     {
         if (anim.isPlaying)
         {
-            edgeCollider2D.enabled = true;
+            _edgeCollider2D.enabled = true;
         }
         else
         {
-            edgeCollider2D.enabled = false;
+            _edgeCollider2D.enabled = false;
         }
     }
 
@@ -46,6 +45,14 @@ public class Spear : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+
+            other.gameObject.GetComponent<EnemyAI>().canFindPlayer = false;
+
+            //knock backing
+            knockBack
+                .Execute(other.gameObject.GetComponent<Rigidbody2D>(),
+                other.gameObject.transform.position,
+                transform.position);
         }
     }
 
@@ -53,7 +60,8 @@ public class Spear : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            edgeCollider2D.enabled = false;
+            _edgeCollider2D.enabled = false;
+            other.gameObject.GetComponent<EnemyAI>().canFindPlayer = true;
         }
     }
 
