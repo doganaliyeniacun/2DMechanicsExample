@@ -1,22 +1,39 @@
 using UnityEngine;
+using Unity.Mathematics;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    private float health = 100;
+    private float _health = 100f;
+
+    private float _currentHealth;
 
     [SerializeField]
     private GameObject floatingTextPrefab;
 
+    [SerializeField]
+    private HealthBar _healthBar;
+
+    private void Awake()
+    {
+        _currentHealth = _health;
+    }
+
+    private void Start()
+    {
+        _healthBar.UpdateHealthBar (_health, _currentHealth);        
+    }
+
     public void TakeDamage(float damage)
     {
-        if (health <= 0)
+        if (_currentHealth <= 0)
         {
             Destroy (gameObject);
         }
         else
         {
-            health -= damage;
+            _currentHealth -= damage;
+            _healthBar.UpdateHealthBar (_health, _currentHealth);
 
             ShowDamage (damage);
         }
