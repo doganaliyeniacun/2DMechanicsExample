@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Direction(playerPos - (Vector2) transform.position);
+        Flip(playerPos - (Vector2) transform.position);
     }
 
     private void FindPlayer()
@@ -58,7 +58,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void Direction(Vector2 direction)
+    private void Flip(Vector2 direction)
     {
         Vector2 scale = transform.localScale;
 

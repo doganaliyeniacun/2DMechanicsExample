@@ -8,6 +8,14 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar(float maxHealth, float currentHealth)
     {
+        if (maxHealth == currentHealth)
+        {
+            gameObject.SetActive(false);
+        }else
+        {
+            gameObject.SetActive(true);
+        }
+        
         _healthbarSprite.fillAmount = currentHealth / maxHealth;
     }
 }

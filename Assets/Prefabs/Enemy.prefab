@@ -163,13 +163,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859396376291238623}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 776719094e7aead4da40e5a36994a8c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  floatingTextPrefab: {fileID: 2137383775257443506, guid: d2b0d38923e1db6409094a7989bf00c3, type: 3}
+  floatingTextPrefab: {fileID: 0}
   _healthBar: {fileID: 80670849}
 --- !u!1 &1859396377250142692
 GameObject:
