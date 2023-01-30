@@ -1,21 +1,30 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    private Rigidbody2D rb;
-
-    private Vector2 playerPos;
-
     [SerializeField]
     private LayerMask playerLayerMask;
 
     [SerializeField]
     private float
 
-            radius = 5f,
-            moveSpeed = 5f;
+            _radius = 5f,
+            _moveSpeed = 5f,
+            _damage = 10f,
+            attackCooldown = 1f;
+
+    private Rigidbody2D rb;
+
+    private Vector2 playerPos;
+
+    private float _attackCooldownLeft;
 
     public bool canFindPlayer = true;
+
+    private bool _canAttack = false;
+
+    private GameObject _player;
 
     private void Awake()
     {
@@ -33,24 +42,24 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Flip(playerPos - (Vector2) transform.position);
+        CanAttack (_damage, _player);
+        ChangeScale(playerPos - (Vector2) transform.position);
     }
 
     private void FindPlayer()
     {
         Collider2D player =
             Physics2D
-                .OverlapCircle(transform.position, radius, playerLayerMask);
+                .OverlapCircle(transform.position, _radius, playerLayerMask);
 
         Vector2 currentDown = Vector2.down * 10;
 
         if (player != null)
         {
             playerPos = player.gameObject.transform.position;
-            
+
             rb.velocity =
-                new Vector2(playerPos.x - transform.position.x,
-                    currentDown.y);
+                new Vector2(playerPos.x - transform.position.x, currentDown.y);
         }
         else
         {
@@ -58,7 +67,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void Flip(Vector2 direction)
+    private void ChangeScale(Vector2 direction)
     {
         Vector2 scale = transform.localScale;
 
@@ -74,8 +83,33 @@ public class EnemyAI : MonoBehaviour
         transform.localScale = scale;
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _player = other.gameObject;
+            _canAttack = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        _canAttack = false;
+    }
+
+    private void CanAttack(float damage, GameObject player)
+    {
+        _attackCooldownLeft -= Time.deltaTime;
+
+        if (_canAttack && _attackCooldownLeft <= 0f && player != null)
+        {
+            _attackCooldownLeft = attackCooldown;
+            player.GetComponent<IHealth>().TakeDamage(_damage);
+        }
+    }
+
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

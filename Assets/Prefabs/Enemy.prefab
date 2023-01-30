@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1859396376291238610}
   - component: {fileID: 5532327440093577517}
   - component: {fileID: -9087982634411387414}
+  - component: {fileID: 7682565929196077498}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -153,8 +154,10 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  radius: 5
-  moveSpeed: 10
+  _radius: 5
+  _moveSpeed: 5
+  _damage: 10
+  attackCooldown: 0.5
   canFindPlayer: 1
 --- !u!114 &-9087982634411387414
 MonoBehaviour:
@@ -168,9 +171,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776719094e7aead4da40e5a36994a8c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  floatingTextPrefab: {fileID: 0}
+  _maxHealth: 100
   _healthBar: {fileID: 80670849}
+  _showDamage: {fileID: 7682565929196077498}
+--- !u!114 &7682565929196077498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859396376291238623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3e4217f3d0f194da77ecb69c37bf18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 0}
 --- !u!1 &1859396377250142692
 GameObject:
   m_ObjectHideFlags: 0

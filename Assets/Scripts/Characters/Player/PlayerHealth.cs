@@ -1,12 +1,9 @@
 using UnityEngine;
 
-public class EnemyHealth : HealthBase, IHealth
+public class PlayerHealth : HealthBase, IHealth
 {
     [SerializeField]
     private HealthBar _healthBar;
-
-    [SerializeField]
-    private ShowDamage _showDamage;
 
     private void Start()
     {
@@ -23,8 +20,6 @@ public class EnemyHealth : HealthBase, IHealth
         {
             CurrentHealth -= damage;
             _healthBar.UpdateHealthBar (MaxHealth, CurrentHealth);
-
-            _showDamage.Execute (damage);
         }
     }
 }
