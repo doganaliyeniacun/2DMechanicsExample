@@ -118,8 +118,7 @@ public class PlayerMovement : MonoBehaviour
         tr.emitting = true;
         
         yield return new WaitForSeconds(wallJumpingCooldown);        
-        tr.emitting = false;
-        
+        tr.emitting = false;        
     }
 
     //Mechanics

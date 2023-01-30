@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -67,6 +66,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Objenin yönünü sağ sol olacak şekilde belirtilen pozisyona göre değiştirir.
+    ///</summary>
+    ///<param name ="direction"> Bulunduğu konuma dönülecek karakterin konumu - bu objenin pozisyonunu alabilir  </param>
     private void ChangeScale(Vector2 direction)
     {
         Vector2 scale = transform.localScale;
@@ -97,6 +100,11 @@ public class EnemyAI : MonoBehaviour
         _canAttack = false;
     }
 
+    /// <summary>
+    /// Player nesnesinin can değerini azaltır.
+    ///</summary>
+    ///<param name ="damage"> Saldırı gücünü alır </param>
+    ///<param name ="player"> Player game objectini alır. </param>
     private void CanAttack(float damage, GameObject player)
     {
         _attackCooldownLeft -= Time.deltaTime;

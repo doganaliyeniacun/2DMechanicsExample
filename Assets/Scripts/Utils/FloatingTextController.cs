@@ -14,7 +14,7 @@ public class FloatingTextController : MonoBehaviour
         textMesh = GetComponent<TextMesh>();
     }
 
-    public void Execute(string text)
+    public  void Execute(string text)
     {
         if (textMesh)
         {
@@ -22,4 +22,6 @@ public class FloatingTextController : MonoBehaviour
             anim.Play("FloatingText");
         }
     }
+
+  
 }
